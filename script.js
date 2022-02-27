@@ -15358,7 +15358,6 @@ startInteraction()
 function handleMouseClick(e){
     if(e.target.matches("[data-key]")){
         pressKey(e.target.dataset.key)
-
         return
     }
     if(e.target.matches("[data-enter]")){
@@ -15388,7 +15387,6 @@ function handleKeyPress(e){
     {
         pressKey(e.key)
         return
-
     }
 }
 
