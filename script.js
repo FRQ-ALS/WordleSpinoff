@@ -15309,12 +15309,7 @@ setProgressBar()
 
 function setProgressBar()
 {
-  getProgress.style.position = 'fixed'
-  getProgress.style.height = 15 + 'px'
-  getProgress.style.width = 1420  + 'px'
-  getProgress.style.left = 10 + 'px'
-  getProgress.style.top = 10 + 'px'
-
+  getProgress.style.width = 1200  + 'px'
 }
 
 
@@ -15330,7 +15325,6 @@ function updateTimer()
   {
       outOfTime()
   }
-
 }
 function outOfTime()
 {
@@ -15338,10 +15332,13 @@ function outOfTime()
   const previousTile = activeTiles[activeTiles.length-1]
   clearInterval(timerInterval)
   stopInteraction()
-    previousTile.addEventListener("animationend", ()=>{
+  if(activeTiles.length!= 0)
+  {
+  previousTile.addEventListener("animationend", ()=>{
   showAlert("You have run out of time! Your final streak is: "+ streak, 3000)
-    }, {once:true})
-
+    },{once:true})
+  }
+  showAlert("You have run out of time! Your final streak is: "+ streak, 6000)
   
 }
 
@@ -15358,28 +15355,31 @@ function currentTargetWord()
 }
 
 var targetWord = currentTargetWord()
+console.log("Current word: " +targetWord)
+
 
 function startInteraction(){
     document.addEventListener("click", handleMouseClick)
     document.addEventListener("keydown", handleKeyPress)
-    console.log("Current word: " +targetWord)
-
+    
 
 }
 startInteraction()
-
 function handleMouseClick(e){
     if(e.target.matches("[data-key]")){
         pressKey(e.target.dataset.key)
+        e.target.blur()
         return
     }
     if(e.target.matches("[data-enter]")){
         submitGuess()
+        e.target.blur()
         return
     }
 
     if(e.target.matches("[data-delete]")) {
-        deleteKey();
+        deleteKey()
+        e.target.blur()
         return
     }
 }
@@ -15444,6 +15444,7 @@ function deleteKey(){
 }
 
 function submitGuess(){
+
     const filledTiles = getAllFilledTiles()
     const activeTiles = [...getActiveTiles()]
     if(activeTiles.length != WORD_LENGTH) {
@@ -15461,9 +15462,8 @@ function submitGuess(){
         shakeTiles(activeTiles)
         return
     }
-    
-    stopInteraction()
 
+    stopInteraction()
     activeTiles.forEach((...params) => changeTiles(...params, guess))
 
     if(filledTiles.length==30 && guess!=targetWord)

@@ -16,16 +16,14 @@ body{
 
 
 .streak{
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
-    position: fixed;
-    top: 18vh;
-    left: 66.5vw;
-    background-color: hsl(200, 1%, 51%);
-    border-radius: 0.25em;
- 
-    user-select: none;
+    color: hsl(248, 95%, 63%);
+    position: absolute;
+    font-size: 5vh;
+    font-weight:bold ;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+  
 }
 
 .key{
@@ -47,6 +45,7 @@ body{
     border-radius: 0.25em;
     cursor: pointer;
     user-select: none;
+
 }
 
 
@@ -100,8 +99,7 @@ body{
     --lightness-offset: 10%;
 }
 .key:focus{
-    outline: black;
-    box-shadow: black;
+    outline: none;
 
 }
 
@@ -272,9 +270,18 @@ margin-bottom: .5em;
     opacity: 0;
 }
 
+
+
 .progress
 {
 
     background-color: hsl(248, 95%, 63%);
-    
+    position: absolute;
+    height: 2vh;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+
+
+
 }
