@@ -15290,7 +15290,7 @@ const dictionary =[
   "shave"
 ]
 
-
+let getProgress = document.querySelector(['.progress'])
 const WORD_LENGTH = 5
 CHANGE_ANIM_DURATION = 500
 var streak = 0
@@ -15304,14 +15304,27 @@ const timerDoc = document.getElementById('timer')
 const getStreak = document.getElementById('streak')
 
 const timerInterval = setInterval(updateTimer, 1000)
+
+setProgressBar()
+
+function setProgressBar()
+{
+  getProgress.style.position = 'fixed'
+  getProgress.style.height = 15 + 'px'
+  getProgress.style.width = 1420  + 'px'
+  getProgress.style.left = 10 + 'px'
+  getProgress.style.top = 10 + 'px'
+
+}
+
+
 function updateTimer()
 {
   const minutes = Math.floor(time/60)
   let seconds = time % 60
 
   seconds = seconds < 10 ? '0' + seconds : seconds
-
-  timerDoc.innerHTML = `${minutes}:${seconds}`
+  getProgress.style.width = parseInt(getProgress.style.width) - 2 + 'px'
   --time
   if(seconds==0 && minutes==0)
   {
