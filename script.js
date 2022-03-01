@@ -15309,7 +15309,7 @@ setProgressBar()
 
 function setProgressBar()
 {
-  getProgress.style.width = 1200  + 'px'
+  getProgress.style.width = 1300  + 'px'
 }
 
 
@@ -15321,9 +15321,12 @@ function updateTimer()
   seconds = seconds < 10 ? '0' + seconds : seconds
   getProgress.style.width = parseInt(getProgress.style.width) - 2 + 'px'
   --time
+  timerDoc.innerHTML = `${minutes}:${seconds}`
+
   if(seconds==0 && minutes==0)
   {
       outOfTime()
+      getProgress .classList.add('red')
   }
 }
 function outOfTime()

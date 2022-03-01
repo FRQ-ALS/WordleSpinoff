@@ -15,17 +15,6 @@ body{
 }
 
 
-.streak{
-    color: hsl(248, 95%, 63%);
-    position: absolute;
-    font-size: 5vh;
-    font-weight:bold ;
-    bottom: 0%;
-    left: 50%;
-    transform: translate(-50%, -0%);
-  
-}
-
 .key{
     font-size: inherit;
     grid-column: span 2;
@@ -86,6 +75,7 @@ body{
     grid-auto-rows: 3em;
     gap: .25em;
     justify-content: center;
+    margin-bottom: 3em;
 
 }
 
@@ -125,6 +115,7 @@ body{
     grid-template-rows: repeat(6, 4em);
     gap: .25em;
     margin-bottom: 1em;
+    margin-top: 1em;
 
 }
 
@@ -277,11 +268,33 @@ margin-bottom: .5em;
 
     background-color: hsl(248, 95%, 63%);
     position: absolute;
-    height: 2vh;
+    height: 3.5vh;
     top: 0%;
     left: 50%;
     transform: translate(-50%, -0%);
 
-
-
 }
+.timer{
+    color: white;
+    position: absolute;
+    font-size: 2.5vh;
+    top: 0.25%;
+    left: 50%;
+    transform: translate(-50%, -0.25%);
+    font-weight: bold;
+    z-index: 1;
+}
+.progress.red{
+    background-color: hsl(349, 95%, 63%);
+}
+
+.streak{
+    color: hsl(248, 95%, 63%);
+    position: absolute;
+    font-size: 4vh;
+    font-weight:bold;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+}
+
