@@ -15303,6 +15303,7 @@ let time = startingMinutes*60
 const timerDoc = document.getElementById('timer')
 const getStreak = document.getElementById('streak')
 
+
 const timerInterval = setInterval(updateTimer, 1000)
 
 setProgressBar()
@@ -15315,6 +15316,7 @@ function setProgressBar()
 
 function updateTimer()
 {
+
   const minutes = Math.floor(time/60)
   let seconds = time % 60
 
@@ -15328,6 +15330,7 @@ function updateTimer()
       outOfTime()
       getProgress .classList.add('red')
   }
+
 }
 function outOfTime()
 {
@@ -15475,14 +15478,18 @@ function submitGuess(){
       activeTiles.forEach(tile =>{
         tile.addEventListener("animationend", ()=>{
           setTimeout(()=>{
+          // showAlert("Incorrect, your streak is over!", 2000)
+          streak=0
+        updateStreak(streak)
+        time = startingMinutes*60
           clearGrid()}, 1500) 
         })
       })
+
       setTimeout(()=>{
         showAlert("Incorrect, your streak is over!", 2000)
-        streak=0
-        updateStreak(streak)
-      })
+
+      }, 1500)
      
     }
 
